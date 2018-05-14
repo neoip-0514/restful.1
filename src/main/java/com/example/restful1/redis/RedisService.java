@@ -1,5 +1,6 @@
 package com.example.restful1.redis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -43,11 +44,17 @@ public class RedisService {
 		logger.debug("key[%s] size=[%d]", key, listOps.size(key));
 	}
 	
-	public String getValue(String key) {
+	public ArrayList<String> getValue(String key) {
 		
-		String value = listOps.rightPop(key);
+		ArrayList<String> list = new ArrayList<>();
+		long size = listOps.size(key);
+		String value;
+		for (long i = 0; i < size; i++) {
+			value = listOps.rightPop(key);
+			list.add(value);
+		}
 		
-		return value;
+		return list;
 	}
 
 	public Long size(String key) {
