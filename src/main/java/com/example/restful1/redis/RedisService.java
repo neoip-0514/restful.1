@@ -49,5 +49,9 @@ public class RedisService {
 		
 		return value;
 	}
+
+	public Long size(String key) {
+		return listOps.size(key);
+	}
 	
 }

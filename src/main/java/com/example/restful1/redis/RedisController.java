@@ -24,6 +24,7 @@ public class RedisController {
 		redisService.addKey(key, value);
 		hm.put("action", "addKey");
 		hm.put(key, value);
+		hm.put("size", Long.toString(redisService.size(key)));
 
 		return hm; 
 	}
