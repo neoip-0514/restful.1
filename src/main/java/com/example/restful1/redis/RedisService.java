@@ -41,7 +41,7 @@ public class RedisService {
 	public void addKey(String key, String value) {
 		
 		listOps.leftPush(key, value);
-		logger.debug("key[%s] size=[%d]", key, listOps.size(key));
+		logger.debug("key={} size={}", key, listOps.size(key));
 	}
 	
 	public ArrayList<String> getValue(String key) {
