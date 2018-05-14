@@ -14,3 +14,11 @@ docker run --name redis -d -p 6379:6379 redis
 
 - 중지된 컨테이너 시작
 docker start redis
+
+## 테스트
+
+- GET - 키 전체조회
+curl -X GET http://localhost:8080/restful.1/redis/event:20180514:apply
+
+- POST - 키에 값 등록
+curl -X POST http://localhost:8080/restful.1/redis/event:20180514:apply -H "Content-Type: application/json" -d '{"value": "값1"}'
