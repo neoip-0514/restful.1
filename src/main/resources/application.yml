@@ -12,11 +12,27 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/my_db
+    connectionProperties: useSSL=false;characterEncoding=UTF-8;zeroDateTimeBehavior=convertToNull;useAffectedRows=true
+    username:
+    password:
+    initSQL: SELECT 1
+    tomcat:
+      max-wait: 3000
+      max-active: 2
+      test-on-borrow: true
 
 logging:
   file: logs/application.log
   level:
     com.example: DEBUG
     
+security:
+  user:
+    name: user
+    password: test
+
 ---
 
